@@ -11,6 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var _dropDownValue = "A";
   var _textToOutput = "My initial text";
 
   void _setText() {
@@ -30,6 +31,20 @@ class _MyAppState extends State<MyApp> {
           children: [
             ActualText(_textToOutput),
             TextControl(_setText),
+            DropdownButton<String>(
+              value: _dropDownValue,
+              items: <String>['A', 'B', 'C', 'D'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  _dropDownValue = newValue!;
+                });
+              },
+            )
           ],
         ),
       ),
