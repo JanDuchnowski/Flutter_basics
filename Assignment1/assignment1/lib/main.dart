@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _dropDownValue = "A";
-  var _textToOutput = "My initial text";
+  var _textToOutput = "My initial text123";
 
   void _setText() {
     setState(() {
